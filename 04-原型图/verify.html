@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>核销台 · 校园超市</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#F5F6F7;color:#1F2933;font-size:14px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.shell{display:flex;min-height:100vh}
+.side{width:220px;flex:0 0 220px;background:#12312B;color:#BFD4CE;padding-bottom:20px}
+.brand{height:56px;display:flex;align-items:center;gap:10px;padding:0 18px;background:#0D2621;color:#fff;font-weight:700}
+.brand i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#3D9683,#E0A32E);display:grid;place-items:center;font-style:normal;font-size:13px}
+.menu a{display:block;height:40px;line-height:40px;padding:0 18px;font-size:13.5px;border-radius:8px;margin:2px 8px}
+.menu a.on,.menu a:hover{background:#16695C;color:#fff;font-weight:600}
+.main{flex:1;min-width:0}
+.top{height:56px;background:#fff;border-bottom:1px solid #E3E6E8;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.crumb{color:#5B6770;font-size:13px}.crumb b{color:#1F2933}
+.who{display:flex;align-items:center;gap:8px;font-size:13px}
+.av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#3D9683,#16695C);color:#fff;display:grid;place-items:center;font-size:12px}
+.body{padding:18px 24px 30px}
+h1{font-size:20px;margin:0 0 4px}.sub{color:#5B6770;font-size:13px;margin-bottom:14px}
+.panel{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(31,41,51,.06);padding:16px 18px;margin-bottom:14px}
+.panel h3{font-size:15px;margin:0 0 10px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+.kpi{background:#fff;border-radius:10px;padding:11px 14px;box-shadow:0 2px 10px rgba(31,41,51,.06);border-left:3px solid #16695C}
+.kpi.acc{border-left-color:#E0A32E}.kpi .t{color:#5B6770;font-size:12.5px}
+.kpi .v{font-size:21px;font-weight:700;color:#16695C;margin-top:2px}.kpi.acc .v{color:#E0A32E}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#FAFBFA;color:#5B6770;font-weight:600;text-align:left;padding:9px 10px;font-size:12.5px}
+td{padding:9px 10px;border-bottom:1px solid #EDF0EE}
+.tag{display:inline-block;padding:1px 9px;border-radius:20px;font-size:12px}
+.tg{background:#E8F3EF;color:#2B7955}.to{background:#FBF2E0;color:#9A6B11}.tr{background:#F8E8EA;color:#B02A37}.tb{background:#E7EFF3;color:#16695C}.tgr{background:#F0F2F4;color:#5B6770}
+.btn{display:inline-block;padding:6px 14px;border-radius:8px;background:#16695C;color:#fff;font-size:13px;cursor:pointer}
+.btn.ghost{background:#fff;color:#16695C;border:1px solid #16695C}
+.btn.acc{background:#E0A32E;color:#3B2A05}
+.filters{display:flex;gap:10px;margin-bottom:12px}
+.inp{height:32px;border:1px solid #DCE1DF;border-radius:8px;padding:0 10px;background:#fff;min-width:200px;color:#5B6770}
+.grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:14px}
+.grid2e{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chart{background:repeating-linear-gradient(90deg,#F7F9F8 0 1px,transparent 1px 44px),#fff;border-radius:8px;height:180px;position:relative;overflow:hidden}
+.bars{display:flex;align-items:flex-end;gap:12px;height:100%;padding:16px 14px 10px}
+.bars div{flex:1;background:linear-gradient(180deg,#3D9683,#16695C);border-radius:6px 6px 0 0;position:relative}
+.bars div span{position:absolute;bottom:-18px;left:0;right:0;text-align:center;font-size:11px;color:#5B6770}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid #E3E6E8;border-radius:22px;padding:7px 16px;text-align:center;background:#fff;font-size:12.5px;min-width:104px}
+.pill.on{border-color:#16695C;background:#E8F3EF;color:#16695C}
+.pill.off{background:#F2F3F4;color:#A8B0B6}
+.pill b{display:block;font-size:13px}
+.note{background:#F7F9F8;border-radius:10px;padding:10px 12px;font-size:12.5px;color:#5B6770}
+.lvl{display:inline-flex;width:24px;height:24px;border-radius:6px;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.lA{background:#F8E8EA;color:#B02A37}.lB{background:#FBF2E0;color:#9A6B11}.lC{background:#E8F3EF;color:#2B7955}.lD{background:#F0F2F4;color:#5B6770}
+.portal{background:#F7F9F8;min-height:100vh}
+.phead{height:62px;background:#fff;border-bottom:1px solid #E3E6E8;display:flex;align-items:center;justify-content:space-between;padding:0 40px}
+.pnav{display:flex;gap:26px;color:#5B6770;font-size:14px}
+.pwrap{max-width:1180px;margin:0 auto;padding:20px 24px 40px}
+.hero{background:linear-gradient(120deg,#12312B,#16695C 62%,#2F8A76);border-radius:16px;color:#fff;padding:32px 34px;display:grid;grid-template-columns:1.35fr 1fr;gap:24px;margin-bottom:20px}
+.hero h1{font-size:29px;line-height:1.35;margin:10px 0}
+.hero p{color:rgba(255,255,255,.85);font-size:13.5px;max-width:420px}
+.badge{display:inline-block;background:rgba(224,163,46,.9);color:#3B2A05;font-size:12px;padding:3px 12px;border-radius:12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:14px}
+.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(31,41,51,.06)}
+.card .im{height:118px;background:linear-gradient(135deg,#DDE8E4,#C9DCD5);position:relative}
+.card .im span{position:absolute;left:8px;top:8px;background:rgba(22,105,92,.9);color:#fff;font-size:11px;padding:1px 7px;border-radius:8px}
+.card .cb{padding:10px 12px}
+.card .nm{font-size:13.5px;font-weight:600}
+.price{color:#E0A32E;font-weight:700}
+.cartbar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;width:min(860px,92vw);background:#12312B;color:#fff;border-radius:28px;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px 0 22px}
+.login{display:flex;min-height:100vh}
+.lleft{flex:1.15;background:linear-gradient(150deg,rgba(11,45,38,.94),rgba(22,105,92,.86));color:#fff;padding:60px 56px;display:flex;flex-direction:column}
+.lleft h1{font-size:38px;line-height:1.3;margin:40px 0 14px}
+.lright{flex:1;display:grid;place-items:center;background:#F7F9F8}
+.lcard{width:380px;background:#fff;border-radius:18px;padding:32px;box-shadow:0 18px 46px rgba(18,49,43,.12)}
+.fld{height:44px;border:1px solid #DCE1DF;border-radius:10px;margin-bottom:14px;display:flex;align-items:center;padding:0 12px;color:#98A29E}
+.step{display:inline-flex;width:22px;height:22px;border-radius:50%;background:#16695C;color:#fff;align-items:center;justify-content:center;font-size:12px;margin-right:6px}
+</style></head><body><div class="shell">
+<aside class="side"><div class="brand"><i>超</i>校园超市</div><div class="menu"><a href="index.html">经营看板</a><a href="goods.html">商品管理</a><a href="order.html">订单管理</a><a href="picking.html">备货工作台</a><a href="verify.html" class="on">核销台</a><a href="forecast.html">预测看板</a><a href="system.html">系统管理</a></div>
+<div style="padding:16px 18px;font-size:11.5px;color:#7F968F;line-height:1.7">校园超市线上订货与自提系统<br>设计稿 v1 · 6 类角色</div></aside>
+<div class="main"><header class="top"><div class="crumb">校园超市 / <b>核销台</b></div>
+<div class="who"><span>🔔</span><span class="av">周</span>李慧 · 自提点店员</div></header>
+<div class="body">
+<h1>核销台</h1><div class="sub">输入 6 位取货码核销；错误 3 次锁定该订单 10 分钟，并发只允许一次成功</div>
+<div class="panel" style="display:grid;grid-template-columns:1.1fr 1fr;gap:24px;padding:24px;align-items:center">
+<div style="text-align:center"><div style="font-size:30px;letter-spacing:10px;border:1px solid #DCE1DF;border-radius:10px;padding:14px;color:#1F2933;max-width:340px;margin:0 auto">482913</div>
+<div style="display:flex;gap:10px;justify-content:center;margin-top:12px;font-size:12.5px"><span class="tag tb">扫码</span><span class="tag tg">取货码</span><span class="tag tgr">人工补录</span></div>
+<div class="btn" style="margin-top:14px;height:44px;line-height:32px;width:220px;font-size:15px">立即核销</div>
+<div style="margin-top:16px;background:#EEF7F3;border-radius:10px;padding:12px;color:#2B7955"><div style="font-size:17px;font-weight:700">✓ 核销成功</div>
+<div>ZT26110200017</div><div style="font-size:12.5px;color:#5B6770">李慧　2026-11-02 11:02:14</div></div></div>
+<div style="display:grid;gap:10px;font-size:13px;color:#5B6770">
+<div style="background:#F7F9F8;border-radius:10px;padding:10px 12px"><b style="color:#1F2933;display:block">核销校验</b>订单须为「待自提」且未超过自提时段结束时间</div>
+<div style="background:#F7F9F8;border-radius:10px;padding:10px 12px"><b style="color:#1F2933;display:block">超时处理</b>时段结束后 2 小时未取，系统自动作废并回滚库存</div>
+<div style="background:#F7F9F8;border-radius:10px;padding:10px 12px"><b style="color:#1F2933;display:block">代取规则</b>人工补录必须填写异常说明，核销记录可追溯</div></div></div>
+<div class="panel"><h3>最近核销记录</h3><table><thead><tr><th>核销编号</th><th>订单</th><th>取货码</th><th>核销人</th><th>方式</th><th>时间</th><th>状态</th></tr></thead><tbody>
+<tr><td>HX2611020018</td><td>ZT26110200017</td><td>730156</td><td>李慧</td><td>扫码</td><td>2026-11-02 10:14:22</td><td><span class='tag tg'>成功</span></td></tr><tr><td>HX2611020017</td><td>ZT26110200012</td><td>316804</td><td>王强</td><td>取货码</td><td>2026-11-02 09:58:10</td><td><span class='tag tg'>成功</span></td></tr><tr><td>HX2611010016</td><td>ZT26110100011</td><td>902471</td><td>陈敏</td><td>扫码</td><td>2026-11-01 19:22:36</td><td><span class='tag tg'>成功</span></td></tr><tr><td>HX2611010015</td><td>ZT26110100010</td><td>518230</td><td>赵磊</td><td>人工补录</td><td>2026-11-01 18:40:02</td><td><span class='tag tg'>成功</span></td></tr><tr><td>HX2611010014</td><td>ZT26110100009</td><td>674125</td><td>李慧</td><td>取货码</td><td>2026-11-01 12:31:47</td><td><span class='tag tg'>成功</span></td></tr></tbody></table></div>
+</div></div></div></body></html>

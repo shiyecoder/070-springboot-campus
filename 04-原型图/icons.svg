@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<symbol id="i-dashboard" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></symbol>
+<symbol id="i-goods" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4v10l-8 4-8-4V7zm8 2l6-3-6-3-6 3 6 3z"/></symbol>
+<symbol id="i-order" viewBox="0 0 24 24"><path d="M4 4h16v3H4V4zm0 6h16v3H4v-3zm0 6h10v3H4v-3z"/></symbol>
+<symbol id="i-picking" viewBox="0 0 24 24"><path d="M4 5h6v6H4V5zm10 0h6v6h-6V5zM4 15h6v6H4v-6zm13-1l4 4-4 4v-3h-4v-2h4v-3z"/></symbol>
+<symbol id="i-verify" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1 14l-4-4 1.4-1.4L11 13.2l4.6-4.6L17 10l-6 6z"/></symbol>
+<symbol id="i-forecast" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8v6l-8 8-4-4-6 6v-6z"/></symbol>
+<symbol id="i-system" viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zm9 4l-2 1 1 3-2 2-3-1-1 2h-3l-1-2-3 1-2-2 1-3-2-1v-3l2-1-1-3 2-2 3 1 1-2h3l1 2 3-1 2 2-1 3 2 1v3z"/></symbol>
+<symbol id="i-cart" viewBox="0 0 24 24"><path d="M6 4h15l-2 10H8L6 4H3V2h5l1 2zm2 14a2 2 0 11.001 4.001A2 2 0 018 18zm10 0a2 2 0 11.001 4.001A2 2 0 0118 18z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5h-2v6l5 3 1-1.7-4-2.3V7z"/></symbol>
+<symbol id="i-cold" viewBox="0 0 24 24"><path d="M11 2h2v8l6-3 1 1.7-6 3.3 6 3.3-1 1.7-6-3v8h-2v-8l-6 3-1-1.7 6-3.3-6-3.3 1-1.7 6 3V2z"/></symbol>
+</svg>

@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>登录 · 校园超市</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#F5F6F7;color:#1F2933;font-size:14px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.shell{display:flex;min-height:100vh}
+.side{width:220px;flex:0 0 220px;background:#12312B;color:#BFD4CE;padding-bottom:20px}
+.brand{height:56px;display:flex;align-items:center;gap:10px;padding:0 18px;background:#0D2621;color:#fff;font-weight:700}
+.brand i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#3D9683,#E0A32E);display:grid;place-items:center;font-style:normal;font-size:13px}
+.menu a{display:block;height:40px;line-height:40px;padding:0 18px;font-size:13.5px;border-radius:8px;margin:2px 8px}
+.menu a.on,.menu a:hover{background:#16695C;color:#fff;font-weight:600}
+.main{flex:1;min-width:0}
+.top{height:56px;background:#fff;border-bottom:1px solid #E3E6E8;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.crumb{color:#5B6770;font-size:13px}.crumb b{color:#1F2933}
+.who{display:flex;align-items:center;gap:8px;font-size:13px}
+.av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#3D9683,#16695C);color:#fff;display:grid;place-items:center;font-size:12px}
+.body{padding:18px 24px 30px}
+h1{font-size:20px;margin:0 0 4px}.sub{color:#5B6770;font-size:13px;margin-bottom:14px}
+.panel{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(31,41,51,.06);padding:16px 18px;margin-bottom:14px}
+.panel h3{font-size:15px;margin:0 0 10px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+.kpi{background:#fff;border-radius:10px;padding:11px 14px;box-shadow:0 2px 10px rgba(31,41,51,.06);border-left:3px solid #16695C}
+.kpi.acc{border-left-color:#E0A32E}.kpi .t{color:#5B6770;font-size:12.5px}
+.kpi .v{font-size:21px;font-weight:700;color:#16695C;margin-top:2px}.kpi.acc .v{color:#E0A32E}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#FAFBFA;color:#5B6770;font-weight:600;text-align:left;padding:9px 10px;font-size:12.5px}
+td{padding:9px 10px;border-bottom:1px solid #EDF0EE}
+.tag{display:inline-block;padding:1px 9px;border-radius:20px;font-size:12px}
+.tg{background:#E8F3EF;color:#2B7955}.to{background:#FBF2E0;color:#9A6B11}.tr{background:#F8E8EA;color:#B02A37}.tb{background:#E7EFF3;color:#16695C}.tgr{background:#F0F2F4;color:#5B6770}
+.btn{display:inline-block;padding:6px 14px;border-radius:8px;background:#16695C;color:#fff;font-size:13px;cursor:pointer}
+.btn.ghost{background:#fff;color:#16695C;border:1px solid #16695C}
+.btn.acc{background:#E0A32E;color:#3B2A05}
+.filters{display:flex;gap:10px;margin-bottom:12px}
+.inp{height:32px;border:1px solid #DCE1DF;border-radius:8px;padding:0 10px;background:#fff;min-width:200px;color:#5B6770}
+.grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:14px}
+.grid2e{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chart{background:repeating-linear-gradient(90deg,#F7F9F8 0 1px,transparent 1px 44px),#fff;border-radius:8px;height:180px;position:relative;overflow:hidden}
+.bars{display:flex;align-items:flex-end;gap:12px;height:100%;padding:16px 14px 10px}
+.bars div{flex:1;background:linear-gradient(180deg,#3D9683,#16695C);border-radius:6px 6px 0 0;position:relative}
+.bars div span{position:absolute;bottom:-18px;left:0;right:0;text-align:center;font-size:11px;color:#5B6770}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid #E3E6E8;border-radius:22px;padding:7px 16px;text-align:center;background:#fff;font-size:12.5px;min-width:104px}
+.pill.on{border-color:#16695C;background:#E8F3EF;color:#16695C}
+.pill.off{background:#F2F3F4;color:#A8B0B6}
+.pill b{display:block;font-size:13px}
+.note{background:#F7F9F8;border-radius:10px;padding:10px 12px;font-size:12.5px;color:#5B6770}
+.lvl{display:inline-flex;width:24px;height:24px;border-radius:6px;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.lA{background:#F8E8EA;color:#B02A37}.lB{background:#FBF2E0;color:#9A6B11}.lC{background:#E8F3EF;color:#2B7955}.lD{background:#F0F2F4;color:#5B6770}
+.portal{background:#F7F9F8;min-height:100vh}
+.phead{height:62px;background:#fff;border-bottom:1px solid #E3E6E8;display:flex;align-items:center;justify-content:space-between;padding:0 40px}
+.pnav{display:flex;gap:26px;color:#5B6770;font-size:14px}
+.pwrap{max-width:1180px;margin:0 auto;padding:20px 24px 40px}
+.hero{background:linear-gradient(120deg,#12312B,#16695C 62%,#2F8A76);border-radius:16px;color:#fff;padding:32px 34px;display:grid;grid-template-columns:1.35fr 1fr;gap:24px;margin-bottom:20px}
+.hero h1{font-size:29px;line-height:1.35;margin:10px 0}
+.hero p{color:rgba(255,255,255,.85);font-size:13.5px;max-width:420px}
+.badge{display:inline-block;background:rgba(224,163,46,.9);color:#3B2A05;font-size:12px;padding:3px 12px;border-radius:12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:14px}
+.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(31,41,51,.06)}
+.card .im{height:118px;background:linear-gradient(135deg,#DDE8E4,#C9DCD5);position:relative}
+.card .im span{position:absolute;left:8px;top:8px;background:rgba(22,105,92,.9);color:#fff;font-size:11px;padding:1px 7px;border-radius:8px}
+.card .cb{padding:10px 12px}
+.card .nm{font-size:13.5px;font-weight:600}
+.price{color:#E0A32E;font-weight:700}
+.cartbar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;width:min(860px,92vw);background:#12312B;color:#fff;border-radius:28px;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px 0 22px}
+.login{display:flex;min-height:100vh}
+.lleft{flex:1.15;background:linear-gradient(150deg,rgba(11,45,38,.94),rgba(22,105,92,.86));color:#fff;padding:60px 56px;display:flex;flex-direction:column}
+.lleft h1{font-size:38px;line-height:1.3;margin:40px 0 14px}
+.lright{flex:1;display:grid;place-items:center;background:#F7F9F8}
+.lcard{width:380px;background:#fff;border-radius:18px;padding:32px;box-shadow:0 18px 46px rgba(18,49,43,.12)}
+.fld{height:44px;border:1px solid #DCE1DF;border-radius:10px;margin-bottom:14px;display:flex;align-items:center;padding:0 12px;color:#98A29E}
+.step{display:inline-flex;width:22px;height:22px;border-radius:50%;background:#16695C;color:#fff;align-items:center;justify-content:center;font-size:12px;margin-right:6px}
+</style></head><body>
+<div class="login">
+  <div class="lleft">
+    <div style="display:flex;align-items:center;gap:10px;font-weight:700">
+      <span style="width:32px;height:32px;border-radius:10px;background:#E0A32E;color:#3B2A05;display:grid;place-items:center">超</span>
+      校园超市 · 线上订货与自提</div>
+    <h1>下课不用排队<br>到店直接取货</h1>
+    <p style="color:rgba(255,255,255,.82);max-width:440px">线上选品、按课表选时段、门店按货架位备货，到店凭 6 位取货码核销，缺货时在线确认替换。</p>
+    <div style="margin-top:30px;display:grid;gap:10px;max-width:420px">
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;font-size:13px"><b style="color:#E0A32E">01</b>　实时库存，售罄自动隐藏</div>
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;font-size:13px"><b style="color:#E0A32E">02</b>　时段容量控制，高峰不挤</div>
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;font-size:13px"><b style="color:#E0A32E">03</b>　备货进度可查，缺货先沟通</div>
+    </div>
+    <div style="margin-top:auto;font-size:12.5px;color:rgba(255,255,255,.6)">学生 · 备货员 · 自提点店员 · 门店店长 · 超市运营 · 系统管理员</div>
+  </div>
+  <div class="lright"><div class="lcard">
+    <h2 style="margin:0 0 4px">登录</h2>
+    <div style="color:#5B6770;font-size:13px;margin-bottom:18px">校内账号登录，按角色进入对应工作台</div>
+    <div class="fld">用户名　admin</div>
+    <div class="fld">密码　••••••</div>
+    <div class="btn" style="display:block;text-align:center;height:44px;line-height:32px;font-size:15px">登 录</div>
+    <div style="margin-top:20px;padding-top:14px;border-top:1px dashed #E3E6E8;font-size:12.5px;color:#5B6770">
+      演示账号（密码均为 123456）
+      <div class="pills" style="margin-top:8px;gap:6px">
+        <span class="tg" style="padding:3px 10px">管理员</span><span class="tg" style="padding:3px 10px">超市运营</span>
+        <span class="tg" style="padding:3px 10px">门店店长</span><span class="tg" style="padding:3px 10px">店员</span>
+        <span class="tg" style="padding:3px 10px">备货员</span><span class="tg" style="padding:3px 10px">学生</span>
+      </div>
+    </div>
+    <div style="margin-top:14px;text-align:center;font-size:12.5px"><a href="index.html" style="color:#E0A32E">先逛逛学生门户 →</a></div>
+  </div></div>
+</div></body></html>

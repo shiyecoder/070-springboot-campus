@@ -1,0 +1,86 @@
+[
+  {
+    "user": "admin",
+    "role": "系统管理员",
+    "expect": "/dashboard",
+    "typed": [
+      "admin",
+      "123456"
+    ],
+    "hash": "#/dashboard",
+    "token": true,
+    "menus": 17,
+    "text": 355,
+    "pass": true
+  },
+  {
+    "user": "operator",
+    "role": "超市运营",
+    "expect": "/dashboard",
+    "typed": [
+      "operator",
+      "123456"
+    ],
+    "hash": "#/dashboard",
+    "token": true,
+    "menus": 10,
+    "text": 326,
+    "pass": true
+  },
+  {
+    "user": "manager",
+    "role": "门店店长",
+    "expect": "/dashboard",
+    "typed": [
+      "manager",
+      "123456"
+    ],
+    "hash": "#/dashboard",
+    "token": true,
+    "menus": 10,
+    "text": 342,
+    "pass": true
+  },
+  {
+    "user": "clerk",
+    "role": "自提点店员",
+    "expect": "/dashboard",
+    "typed": [
+      "clerk",
+      "123456"
+    ],
+    "hash": "#/dashboard",
+    "token": true,
+    "menus": 5,
+    "text": 315,
+    "pass": true
+  },
+  {
+    "user": "picker",
+    "role": "备货员",
+    "expect": "/dashboard",
+    "typed": [
+      "picker",
+      "123456"
+    ],
+    "hash": "#/dashboard",
+    "token": true,
+    "menus": 3,
+    "text": 305,
+    "pass": true
+  },
+  {
+    "user": "student",
+    "role": "学生",
+    "expect": "/my-orders",
+    "typed": [
+      "student",
+      "123456"
+    ],
+    "hash": "#/my-orders",
+    "token": true,
+    "menus": 2,
+    "text": 1253,
+    "pass": true
+  }
+]

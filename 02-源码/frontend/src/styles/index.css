@@ -1,0 +1,80 @@
+/* 校园超市线上订货与自提系统 全局样式
+   视觉方向：校园轻快风格，青绿主色 #16695C 配暖黄点缀 #E0A32E（需求 10.2） */
+:root {
+  --primary: #16695c;
+  --primary-d: #0f4f45;
+  --aux: #3d9683;
+  --accent: #e0a32e;
+  --bg: #f5f6f7;
+  --text: #1f2933;
+  --muted: #5b6770;
+  --line: #e3e6e8;
+  --success: #2b7955;
+  --danger: #b02a37;
+  --radius: 10px;
+  --shadow: 0 2px 10px rgba(31, 41, 51, 0.06);
+}
+* { box-sizing: border-box; }
+html, body, #app { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px; color: var(--text); background: var(--bg); line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+.el-button--primary { --el-button-bg-color: var(--primary); --el-button-border-color: var(--primary); --el-button-hover-bg-color: var(--primary-d); --el-button-hover-border-color: var(--primary-d); }
+.el-button { border-radius: 8px; }
+.el-input__wrapper, .el-select__wrapper, .el-textarea__inner { border-radius: 8px; }
+.page-title { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+.page-sub { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+.panel {
+  background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; margin-bottom: 14px;
+}
+.panel h3 { font-size: 15px; margin: 0 0 10px; display: flex; align-items: center; justify-content: space-between; }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+.filters .el-select { width: 200px; }
+.filters .el-input { width: 220px; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px; }
+.kpi {
+  background: #fff; border-radius: var(--radius); padding: 11px 14px; box-shadow: var(--shadow);
+  border-left: 3px solid var(--primary);
+}
+.kpi.acc { border-left-color: var(--accent); }
+.kpi .t { color: var(--muted); font-size: 12.5px; }
+.kpi .v { font-size: 21px; font-weight: 700; color: var(--primary); margin-top: 2px; letter-spacing: -0.5px; }
+.kpi.acc .v { color: var(--accent); }
+.kpi .d { font-size: 12px; color: var(--success); margin-top: 2px; }
+.tag-green { background: #e8f3ef; color: var(--success); }
+.tag-orange { background: #fbf2e0; color: #9a6b11; }
+.tag-red { background: #f8e8ea; color: var(--danger); }
+.tag-gray { background: #f0f2f4; color: var(--muted); }
+.tag-blue { background: #e7eff3; color: var(--primary); }
+.tag-green, .tag-orange, .tag-red, .tag-gray, .tag-blue {
+  display: inline-flex; align-items: center; padding: 1px 9px; border-radius: 20px; font-size: 12px; white-space: nowrap;
+}
+.price { color: var(--accent); font-weight: 700; }
+.muted { color: var(--muted); }
+.empty-tip { color: var(--muted); text-align: center; padding: 40px 0; font-size: 13px; }
+.img-box { width: 76px; height: 56px; border-radius: 8px; object-fit: cover; background: #edefea; display: block; }
+.el-table th.el-table__cell { background: #fafbfa; color: var(--muted); font-weight: 600; font-size: 12.5px; }
+.el-table .cell { line-height: 1.5; }
+.chart { width: 100%; height: 210px; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.row-3 { display: grid; grid-template-columns: 1.55fr 1fr; gap: 14px; }
+.slot-pill {
+  display: inline-flex; flex-direction: column; align-items: center; padding: 7px 14px; border-radius: 22px;
+  border: 1px solid var(--line); background: #fff; cursor: pointer; margin: 0 8px 8px 0; min-width: 104px;
+  transition: all .15s;
+}
+.slot-pill.active { border-color: var(--primary); background: #e8f3ef; color: var(--primary); }
+.slot-pill.disabled { background: #f2f3f4; color: #a8b0b6; cursor: not-allowed; }
+.slot-pill b { font-size: 13px; }
+.slot-pill span { font-size: 11.5px; }
+.level-A { background: #f8e8ea; color: var(--danger); }
+.level-B { background: #fbf2e0; color: #9a6b11; }
+.level-C { background: #e8f3ef; color: var(--success); }
+.level-D { background: #f0f2f4; color: var(--muted); }
+.level-A, .level-B, .level-C, .level-D {
+  display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px;
+  border-radius: 6px; font-weight: 700; font-size: 13px;
+}
+.step-num { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: #fff; align-items: center; justify-content: center; font-size: 12px; margin-right: 6px; }
